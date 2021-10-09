@@ -1,0 +1,4 @@
+docker run --name mysql --network host -e MYSQL_ROOT_PASSWORD=root@123 -d mysql:latest
+
+go get -u google.golang.org/protobuf/cmd/protoc-gen-go
+go get -u google.golang.org/grpc/cmd/protoc-gen-go-grpc
