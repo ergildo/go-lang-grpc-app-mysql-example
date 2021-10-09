@@ -1,0 +1,36 @@
+syntax = "proto3";
+package user_pb;
+option go_package = "github.com/ergildo/go-lang-grcp-app-mysql-example/user-server/user-pb;user_pb";
+
+
+service UserServiceBP{
+  rpc CreateUser(NewUserRequest) returns (UserResponse){}
+  rpc UpdateUser(UpdateUserRequest) returns (UserResponse){}
+  rpc FindUserById(UserRequest) returns (UserResponse){}
+  rpc ListAllUsers(Void) returns (ListAllUsersResponse){}
+  rpc DeleteUser(UserRequest) returns (Void){}
+}
+
+message Void{}
+
+message NewUserRequest{
+  string name = 1;
+}
+
+message UpdateUserRequest{
+  int64 id = 1;
+  string name = 2;
+}
+
+message UserResponse{
+  int64 id = 1;
+  string name = 2;
+}
+
+message UserRequest{
+  int64 id = 1;
+}
+message ListAllUsersResponse{
+  repeated UserResponse UserResponse = 1;
+}
+
